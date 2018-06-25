@@ -1,8 +1,8 @@
 //Creating angular module UIRanking
 var uiranking = angular.module("uiranking", ["firebase"]);
 uiranking.constant("firebase_url", {
-    base_url: "https://uiranking.firebaseio.com/data",
-    users: "https://uiranking.firebaseio.com/users",
+    base_url: "https://uiranking-test.firebaseio.com/data",
+    users: "https://uiranking-test.firebaseio.com/users",
 });
 
 //Configuring router
@@ -70,6 +70,12 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
                         $scope.image2 = array[Math.floor(Math.random() * array.length)];
                         name2 = $scope.image2.substring(0, $scope.image2.length - 4);
                     }
+
+                    $scope.name1 = name1;
+                    $scope.name2 = name2;
+
+                    $scope.description1 = descriptions.filter(function(el){return el.name == name1})[0].description;
+                    $scope.description2 = descriptions.filter(function(el){return el.name == name2})[0].description;
 
                     $scope.pictures.once("value", function (snapshot) {
 
@@ -257,9 +263,9 @@ uiranking.controller("statsController", ["$scope", "angularFireCollection", "fir
            $scope.participants = Object.keys(snapshot.val()).length-1;
            $scope.$apply();
         });
-     
+
         $scope.refreshRanking = function(){
-            $route.reload();   
+            $route.reload();
         }
 
         activate_nav(".stats");

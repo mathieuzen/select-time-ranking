@@ -6,6 +6,16 @@ img{
 	height: auto;
 }
 
+.btn-description{
+	margin-bottom: 20px;
+}
+
+.img-responsive {
+    width: auto;
+    height: 50vh;
+		margin-bottom: 50px;
+}
+
 .prettyprint{
 	overflow-y: scroll;
 	height: 300px;
@@ -20,10 +30,10 @@ img{
 ::-webkit-scrollbar:hover {
   background-color: rgba(0, 0, 0, 0.09);
 }
- 
+
 /* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
 ::-webkit-scrollbar-thumb:vertical {
-  /* This is the EXACT color of Mac OS scrollbars. 
+  /* This is the EXACT color of Mac OS scrollbars.
      Yes, I pulled out digital color meter */
   background: rgba(0,0,0,0.5);
   -webkit-border-radius: 100px;
@@ -49,7 +59,7 @@ a:hover{
     display:inline-block;
     float:none;
     /* reset the text-align */
-    text-align:left;
+    text-align:center;
     /* inline-block space fix */
     margin-right:-4px;
 }

@@ -1,18 +1,28 @@
 <div class="container">
     <div class="row">
         <center>
-            <h2>{{technique}}</h2>
+            <h2>Adaptive Menus</h2>
         </center>
         <hr/>
     </div>
     <div ng-hide="finished || description">
         <div ng-show="image1" class="row row-centered">
             <div class="col-lg-6 col-md-6 col-xs-12 col-centered">
-                <a><img class="img img-thumbnail dark" ng-src="images/{{image1}}" ng-click="vote(image1, image2)" />
+                <h1>{{name1}}</h1>
+                <button type="button" class="btn btn-primary btn-description" data-toggle="modal" data-target="#modal1">
+                  Description
+                </button>
+                <br/>
+                <a><img class="img img-responsive img-thumbnail dark" ng-src="images/{{image1}}" ng-click="vote(image1, image2)" />
                 </a>
             </div>
             <div class="col-lg-6 col-md-6 col-xs-12 col-centered">
-                <a><img class="img img-thumbnail dark" ng-src="images/{{image2}}" ng-click="vote(image2, image1)" />
+                <h1>{{name2}}</h1>
+                <button type="button" class="btn btn-primary btn-description" data-toggle="modal" data-target="#modal2">
+                  Description
+                </button>
+                <br/>
+                <a><img class="img img-responsive img-thumbnail dark" ng-src="images/{{image2}}" ng-click="vote(image2, image1)" />
                 </a>
             </div>
         </div>
@@ -33,4 +43,37 @@
     <hr/>
 
 </div>
+
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{name1}}</h5>
+      </div>
+      <div class="modal-body">
+        {{description1}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{name2}}</h5>
+      </div>
+      <div class="modal-body">
+        {{description2}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
