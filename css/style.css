@@ -6,6 +6,10 @@ img{
 	height: auto;
 }
 
+.description-row img{
+	margin-top: 15px;
+}
+
 .btn-description{
 	margin-bottom: 20px;
 }
@@ -81,9 +85,17 @@ a:hover{
 }
 
 .score {
-    display: block;
+    display: inline-block;
     font-size: 16px;
+		float: right;
     text-align: right;
+    font-family: Verdana;
+}
+
+.impressions {
+    display: inline-block;
+    font-size: 16px;
+    text-align: left;
     font-family: Verdana;
 }
 
