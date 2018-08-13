@@ -2,7 +2,7 @@ var jsonfile = require('jsonfile');
 var dir = require('directory-tree');
 
 var file = 'images.json';
-var content = dir.directoryTree("images", ['.png']);
+var content = dir.directoryTree("images", ['.gif']);
 
 jsonfile.writeFile(file, content, function(err){
 	console.error(err);

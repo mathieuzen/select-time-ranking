@@ -2,6 +2,12 @@
     <div class="row">
         <center>
             <h2>Adaptive Menus</h2>
+            <div ng-hide="finished" class="progress" style="height: 50px;">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{percentage}}"
+              aria-valuemin="0" aria-valuemax="100" style="width:{{percentage}}%; height: 50px;">
+              <span style="display: block; text-align: center;height: 100%;line-height: 3.5;">{{nComparisons}} / {{comparisonsMax}}</span>
+              </div>
+            </div>
         </center>
         <hr/>
     </div>

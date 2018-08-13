@@ -1,9 +1,10 @@
 //Creating angular module UIRanking
 var uiranking = angular.module("uiranking", ["firebase"]);
 uiranking.constant("firebase_url", {
-    base_url: "https://uiranking-test.firebaseio.com/data",
-    users: "https://uiranking-test.firebaseio.com/users",
+    base_url: "https://adaptive-menus.firebaseio.com/data",
+    users: "https://adaptive-menus.firebaseio.com/users",
 });
+
 
 //Configuring router
 uiranking.config(["$routeProvider", function ($routeProvider) {
@@ -40,6 +41,10 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
 
         var nComparisons = 0;
 
+        var percentage = 0;
+
+        var comparisonsMax = 0;
+
 
         var success = function (data) {
             data.data.children.forEach(function (entry) {
@@ -59,6 +64,9 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
             setTimeout(function () {
 
                 if (nComparisons < maxComparisons(array.length)) {
+                    $scope.nComparisons = nComparisons;
+                    $scope.comparisonsMax = maxComparisons(array.length);
+                    $scope.percentage = (nComparisons/$scope.comparisonsMax)*100;
                     $scope.image1 = array[Math.floor(Math.random() * array.length)];
                     var name1 = $scope.image1.substring(0, $scope.image1.length - 4);
                     $scope.image2 = array[Math.floor(Math.random() * array.length)];
@@ -188,7 +196,10 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
         }
 
         function maxComparisons(n) {
-            return (Math.pow(n, 2) - n) / 2;
+          //all
+          //return (Math.pow(n, 2) - n) / 2;
+          //only 100
+            return 50;
         }
 
         $scope.next = function () {

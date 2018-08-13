@@ -65,7 +65,8 @@ a:hover{
 }
 
 .smallimage {
-    width: 200px;
+    height: 200px;
+		width: auto;
     margin: auto;
     display: block;
 }
@@ -73,19 +74,17 @@ a:hover{
 
 
 .name {
-    display: inline-block;
+    display: block;
     font-size: 20px;
     font-family: Verdana;
-    width: 70%;
     text-align: center;
 }
 
 .score {
-    display: inline-block;
+    display: block;
     font-size: 16px;
     text-align: right;
     font-family: Verdana;
-    width: 12%;
 }
 
 .draw-button {
