@@ -132,7 +132,7 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
                 }
                 $scope.$apply();
 
-            }, 100);
+            }, 1000);
         }
         var firebase_init = function () {
             $scope.pictures = new Firebase(firebase_url.base_url + "/" + $rootScope.technique);
