@@ -234,6 +234,8 @@ uiranking.controller("infoController", ["$scope", "$rootScope", "angularFireColl
         });
 
         $scope.submit = function () {
+            $rootScope.users.child($rootScope.user.id).child("yob").set($rootScope.user.yob);
+            $rootScope.users.child($rootScope.user.id).child("gender").set($rootScope.user.gender);
             $rootScope.idSaved = true;
             $rootScope.techniqueId = 0;
             $location.path('/description')
