@@ -1,8 +1,8 @@
 //Creating angular module UIRanking
 var uiranking = angular.module("uiranking", ["firebase"]);
 uiranking.constant("firebase_url", {
-    base_url: "https://adaptive-menus.firebaseio.com/data",
-    users: "https://adaptive-menus.firebaseio.com/users",
+    base_url: "https://highlighting-ranking.firebaseio.com/data",
+    users: "https://highlighting-ranking.firebaseio.com/users",
 });
 
 
@@ -72,7 +72,7 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
                     $scope.image2 = array[Math.floor(Math.random() * array.length)];
                     var name2 = $scope.image2.substring(0, $scope.image2.length - 4);
 
-                    while ($scope.image1 === $scope.image2 || compared(name1, name2)) {
+                    while ($scope.image1 === $scope.image2 || compared(name1, name2) || incompatible(name1, name2)) {
                         $scope.image1 = array[Math.floor(Math.random() * array.length)];
                         name1 = $scope.image1.substring(0, $scope.image1.length - 4);
                         $scope.image2 = array[Math.floor(Math.random() * array.length)];
@@ -82,8 +82,8 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
                     $scope.name1 = name1;
                     $scope.name2 = name2;
 
-                    $scope.description1 = descriptions.filter(function(el){return el.name == name1})[0].description;
-                    $scope.description2 = descriptions.filter(function(el){return el.name == name2})[0].description;
+                    // $scope.description1 = descriptions.filter(function(el){return el.name == name1})[0].description;
+                    // $scope.description2 = descriptions.filter(function(el){return el.name == name2})[0].description;
 
                     $scope.pictures.once("value", function (snapshot) {
 
@@ -184,22 +184,25 @@ uiranking.controller("homeController", ["$scope", "angularFireCollection", "fire
         function compared(name1, name2) {
             if (name1 === name2)
                 return true;
-            var namesConcat = name1 + name2,
-                namesConcatInverted = name2 + name1;
-            if (comparisonsArray.indexOf(namesConcat) === -1 && comparisonsArray.indexOf(namesConcatInverted) === -1) {
-                comparisonsArray.push(namesConcat, namesConcatInverted);
-                nComparisons += 1;
+            var namesConcat = name1 + name2
+            if (comparisonsArray.indexOf(namesConcat) === -1) {
+                comparisonsArray.push(namesConcat);
+		if(!incompatible(name1,name2))
+               	   nComparisons += 1;
                 return false;
             } else {
                 return true;
             }
         }
 
+	function incompatible(name1, name2){
+	    return (name1.indexOf('-r') !== -1) || (name2.indexOf('-l') !== -1);
+	}
+
         function maxComparisons(n) {
           //all
           //return (Math.pow(n, 2) - n) / 2;
-          //only 100
-            return 50;
+          return 20;
         }
 
         $scope.next = function () {
@@ -236,6 +239,7 @@ uiranking.controller("infoController", ["$scope", "$rootScope", "angularFireColl
         $scope.submit = function () {
             $rootScope.users.child($rootScope.user.id).child("yob").set($rootScope.user.yob);
             $rootScope.users.child($rootScope.user.id).child("gender").set($rootScope.user.gender);
+            $rootScope.users.child($rootScope.user.id).child("tech-unfamiliar").set($rootScope.user.techUnfamiliar);
             $rootScope.idSaved = true;
             $rootScope.techniqueId = 0;
             $location.path('/description')

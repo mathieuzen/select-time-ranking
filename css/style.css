@@ -166,3 +166,22 @@ a:hover{
     border: none;
     color: #202d3b;
 }
+
+.likert{
+  padding: 0;
+}
+
+.likert li {
+  float: left;
+  list-style-type: none;
+  margin-left: 40px;
+}
+
+.likert .first{
+  margin-left: 0px;
+}
+
+.statement{
+  margin-top: 20px;
+  font-size: 18px;
+}
