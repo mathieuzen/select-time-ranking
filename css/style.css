@@ -16,8 +16,9 @@ img{
 
 .img-responsive {
     width: auto;
-    height: 50vh;
-		margin-bottom: 50px;
+    height: 65vh;
+    margin-bottom: 50px;
+    object-fit: cover;
 }
 
 .prettyprint{
@@ -102,7 +103,6 @@ a:hover{
 .draw-button {
   width: 50%;
   height: 50px;
-  margin-top: 20px;
 }
 
 .form {

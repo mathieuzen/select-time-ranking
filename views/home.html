@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row">
         <center>
-            <h2>{{technique}}</h2>
-            <div ng-hide="finished" class="progress" style="height: 50px;">
+            <!-- <h2>{{technique}}</h2> -->
+            <div ng-hide="finished" class="progress" style="height: 30px;">
               <div class="progress-bar" role="progressbar" aria-valuenow="{{percentage}}"
               aria-valuemin="0" aria-valuemax="100" style="width:{{percentage}}%; height: 50px;">
-              <span style="display: block; text-align: center;height: 100%;line-height: 3.5;">{{nComparisons}} / {{comparisonsMax}}</span>
+              <span style="display: block; text-align: center;height: 100%;line-height: 2.5;">{{nComparisons}} / {{comparisonsMax}}</span>
               </div>
             </div>
         </center>
@@ -13,8 +13,8 @@
     </div>
     <div ng-hide="finished || description">
         <div ng-show="image1" class="row row-centered">
-            <div class="col-lg-6 col-md-6 col-xs-12 col-centered">
-                <h3>{{name1}}</h3>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-centered">
+                <!-- <h3>{{name1}}</h3> -->
                 <!-- <button type="button" class="btn btn-primary btn-description" data-toggle="modal" data-target="#modal1">
                   Description
                 </button> -->
@@ -22,8 +22,8 @@
                 <a><img class="img img-responsive img-thumbnail dark" ng-src="images/{{image1}}" ng-click="vote(image1, image2)" />
                 </a>
             </div>
-            <div class="col-lg-6 col-md-6 col-xs-12 col-centered">
-                <h3>{{name2}}</h3>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-centered">
+                <!-- <h3>{{name2}}</h3> -->
                 <!-- <button type="button" class="btn btn-primary btn-description" data-toggle="modal" data-target="#modal2">
                   Description
                 </button> -->
