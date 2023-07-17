@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "directory-tree": "^3.5.1",
+    "jsonfile": "^6.1.0"
+  }
+}

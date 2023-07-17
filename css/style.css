@@ -16,7 +16,6 @@ img{
 
 .img-responsive {
     width: auto;
-    height: 65vh;
     margin-bottom: 50px;
     object-fit: cover;
 }
